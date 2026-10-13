@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es" data-zone="video">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>José Álvarez · Vídeo</title>
+  <meta name="description" content="José Álvarez, videógrafo en el Campo de Gibraltar. Dron, publicidad y contenido para redes sociales.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="José Álvarez · Vídeo">
+  <meta property="og:description" content="Código, fotografía y vídeo.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body data-page="video">
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top" aria-label="José Álvarez, ir al inicio">
+        <svg class="nav__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 11V3h8M21 3h8v8M29 21v8h-8M11 29H3v-8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="16" cy="16" r="3.2" fill="currentColor"/></svg>
+        <span class="nav__name" data-persona="nombre">José Álvarez</span>
+      </a>
+      <nav aria-label="Secciones">
+        <ul class="nav__links">
+          <li><a href="#video" data-nav="video">Trabajos</a></li>
+          <li><a href="../">Portfolio completo</a></li>
+          <li><a href="#contacto" data-nav="contacto" class="nav__cta">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" data-zone="hero" data-mode="video" aria-label="Presentación">
+      <canvas class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__scene" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+      <div class="hero__bars" aria-hidden="true"><span></span><span></span></div>
+
+      <div class="hero__frame">
+        <span class="corner corner--tl" aria-hidden="true"></span>
+        <span class="corner corner--tr" aria-hidden="true"></span>
+        <span class="corner corner--bl" aria-hidden="true"></span>
+        <span class="corner corner--br" aria-hidden="true"></span>
+
+        <div class="readout" aria-hidden="true">
+          <span class="readout__l" data-show="video"><i class="rec-dot"></i>REC&nbsp;&nbsp;<span id="heroTc">00:00:00:00</span></span>
+          <span class="readout__r" data-show="video">4K&nbsp;&nbsp;&nbsp;25p&nbsp;&nbsp;&nbsp;C-Log 3</span>
+        </div>
+
+        <div class="hero__body">
+          <h1 class="hero__name"><span class="hero__first">José</span><span class="hero__last">Álvarez</span></h1>
+          <p class="hero__role">
+            <span data-show="video">Dron, publicidad y contenido para redes. Grabo, monto y etalono.</span>
+          </p>
+        </div>
+
+        <div class="hero__foot">
+          <div class="hero__controls">
+            <a class="btn btn--solid" id="heroGo" href="#video">Ver trabajos</a>
+            <a class="btn btn--ghost" href="#contacto" data-intent="video">Contar tu proyecto</a>
+          </div>
+          <p class="hero__intro">Videógrafo en el Campo de Gibraltar.<br><a href="../">También programo: ver el portfolio completo</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="zone zone--video" id="video" data-zone="video" aria-labelledby="video-title">
+      <div class="wrap">
+        <header class="zone__head zone__head--video">
+          <h2 class="h-video" id="video-title">Vídeo</h2>
+          <p class="lead" id="videoLead"></p>
+        </header>
+
+        <div class="editor">
+          <div class="viewer">
+            <div class="viewer__stage" id="stage">
+              <div class="viewer__frame" id="viewerFrame">
+                <div class="viewer__media" id="viewerMedia"></div>
+              </div>
+              <div class="viewer__safe" aria-hidden="true"></div>
+              <div class="viewer__hud" aria-hidden="true">
+                <span id="hudFormat">16:9</span>
+                <span id="hudTc">00:00:00:00</span>
+              </div>
+            </div>
+            <div class="viewer__meta" aria-live="polite">
+              <div>
+                <p class="viewer__track" id="metaTrack"></p>
+                <h3 class="viewer__title" id="metaTitle"></h3>
+                <p class="viewer__text" id="metaText"></p>
+              </div>
+              <div class="viewer__actions" id="metaActions"></div>
+            </div>
+          </div>
+
+          <div class="transport">
+            <button type="button" class="transport__play" id="playBtn" aria-label="Reproducir">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="i-play"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="i-pause"><path d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z" fill="currentColor"/></svg>
+            </button>
+            <span class="transport__tc"><span id="tcNow">00:00:00:00</span> <span class="transport__total">/ <span id="tcTotal">00:02:00:00</span></span></span>
+            <span class="transport__hint">Arrastra el cabezal o pulsa un clip</span>
+          </div>
+
+          <div class="tl-scroll">
+            <div class="tl" id="tl" tabindex="0" role="slider" aria-label="Línea de tiempo" aria-valuemin="0" aria-valuemax="120" aria-valuenow="0" aria-valuetext="00:00:00:00">
+              <div class="tl__row tl__row--ruler">
+                <div class="tl__head"></div>
+                <div class="tl__lane tl__ruler" id="ruler"></div>
+              </div>
+              <div id="tracks"></div>
+              <div class="tl__row tl__row--audio">
+                <div class="tl__head"><b>A1</b><span>Música</span></div>
+                <div class="tl__lane"><div class="tl__audio" id="audioWave"></div></div>
+              </div>
+              <div class="tl__playhead" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="vservices" id="vservices"></ul>
+        <div class="vfoot">
+          <a class="btn btn--video" href="#contacto" data-intent="video">Contar tu proyecto de vídeo</a>
+          <p class="gear" id="videoGear"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="zone zone--contacto" id="contacto" data-zone="contacto" aria-labelledby="contacto-title">
+      <div class="wrap contact">
+        <h2 class="h-code contact__title" id="contacto-title">¿Hablamos?</h2>
+        <p class="lead contact__lead">Cuéntame qué tienes entre manos: una aplicación, una arquitectura, una boda, una sesión o un vídeo para tu marca.</p>
+
+        <div class="contact__panel">
+          <div class="intents" id="intents" role="radiogroup" aria-label="Qué necesitas"></div>
+          <div class="mail">
+            <p class="mail__label">Escríbeme a</p>
+            <p class="mail__addr"><span id="mailAddr" data-persona="email"></span></p>
+            <p class="mail__subject">Asunto: <span id="mailSubject"></span></p>
+            <div class="mail__actions">
+              <button type="button" class="btn" id="copyMail">Copiar dirección</button>
+              <a class="btn btn--ghost" id="openMail" href="#">Abrir el correo</a>
+            </div>
+          </div>
+          <ul class="social" id="social"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <p>© <span id="year">2026</span> <span data-persona="nombre">José Álvarez</span></p>
+      <p>Hecho a mano con HTML, CSS y JavaScript, sin frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

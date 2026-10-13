@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es" data-zone="codigo">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>José Álvarez</title>
+  <meta name="description" content="José Álvarez. Arquitectura de software, backend, infraestructura e IA. Fotografía de bodas, premamá, bautizos, retrato y viajes. Vídeo con dron, publicidad y redes sociales.">
+  <meta name="theme-color" content="#0C1824">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="José Álvarez">
+  <meta property="og:description" content="Código, fotografía y vídeo.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top" aria-label="José Álvarez, ir al inicio">
+        <svg class="nav__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 11V3h8M21 3h8v8M29 21v8h-8M11 29H3v-8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="16" cy="16" r="3.2" fill="currentColor"/></svg>
+        <span class="nav__name" data-persona="nombre">José Álvarez</span>
+      </a>
+      <nav aria-label="Secciones">
+        <ul class="nav__links">
+          <li><a href="#codigo" data-nav="codigo">Código</a></li>
+          <li><a href="#foto" data-nav="foto">Foto</a></li>
+          <li><a href="#video" data-nav="video">Vídeo</a></li>
+          <li><a href="#contacto" data-nav="contacto" class="nav__cta">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ PORTADA: un visor con tres modos ============ -->
+    <section class="hero" id="top" data-zone="hero" data-mode="codigo" aria-label="Presentación">
+      <canvas class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__scene" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+      <div class="hero__bars" aria-hidden="true"><span></span><span></span></div>
+
+      <div class="hero__frame">
+        <span class="corner corner--tl" aria-hidden="true"></span>
+        <span class="corner corner--tr" aria-hidden="true"></span>
+        <span class="corner corner--bl" aria-hidden="true"></span>
+        <span class="corner corner--br" aria-hidden="true"></span>
+
+        <div class="readout" aria-hidden="true">
+          <span class="readout__l" data-show="codigo">~/jose $ whoami</span>
+          <span class="readout__r" data-show="codigo">uptime: 19 años</span>
+          <span class="readout__l" data-show="foto">AF-C&nbsp;&nbsp;&nbsp;Detección de ojos</span>
+          <span class="readout__r" data-show="foto">RAW&nbsp;&nbsp;&nbsp;1/250&nbsp;&nbsp;&nbsp;f/2.8&nbsp;&nbsp;&nbsp;ISO 200</span>
+          <span class="readout__l" data-show="video"><i class="rec-dot"></i>REC&nbsp;&nbsp;<span id="heroTc">00:00:00:00</span></span>
+          <span class="readout__r" data-show="video">4K&nbsp;&nbsp;&nbsp;25p&nbsp;&nbsp;&nbsp;C-Log 3</span>
+        </div>
+
+        <div class="hero__body">
+          <h1 class="hero__name"><span class="hero__first">José</span><span class="hero__last">Álvarez</span></h1>
+          <p class="hero__role">
+            <span data-show="codigo">Arquitectura de software, backend, infraestructura e IA. 19 años programando.</span>
+            <span data-show="foto">Bodas, premamá, bautizos, retrato y viajes. Luz natural y momentos que no se repiten.</span>
+            <span data-show="video">Dron, publicidad y contenido para redes. Grabo, monto y etalono.</span>
+          </p>
+        </div>
+
+        <div class="hero__foot">
+          <div class="hero__controls">
+            <div class="dial" role="radiogroup" aria-label="Modo de la portada">
+              <button type="button" role="radio" aria-checked="true" data-mode="codigo">Código</button>
+              <button type="button" role="radio" aria-checked="false" data-mode="foto" tabindex="-1">Foto</button>
+              <button type="button" role="radio" aria-checked="false" data-mode="video" tabindex="-1">Vídeo</button>
+              <span class="dial__thumb" aria-hidden="true"></span>
+            </div>
+            <a class="btn btn--ghost" id="heroGo" href="#codigo">Ver código</a>
+          </div>
+          <p class="hero__intro">Programador, fotógrafo y videógrafo.<br><span data-persona="ubicacion">Campo de Gibraltar, Cádiz</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CÓDIGO ============ -->
+    <section class="zone zone--codigo" id="codigo" data-zone="codigo" aria-labelledby="codigo-title">
+      <div class="wrap">
+        <header class="zone__head">
+          <h2 class="h-code" id="codigo-title">Código</h2>
+          <p class="lead" id="codigoLead"></p>
+        </header>
+
+        <div class="code-grid">
+          <div class="code-grid__main">
+            <h3 class="h-sub">Lo que hago ahora</h3>
+            <dl class="caps" id="caps"></dl>
+          </div>
+
+          <aside class="code-grid__side" aria-label="Terminal interactiva">
+            <div class="term">
+              <div class="term__bar">
+                <span class="term__lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span>jose@portfolio: ~</span>
+              </div>
+              <div class="term__out" id="termOut" aria-live="polite"></div>
+              <form class="term__in" id="termForm" autocomplete="off">
+                <label for="termInput" class="t-prompt">~ $</label>
+                <input id="termInput" name="termInput" type="text" spellcheck="false" autocapitalize="off" placeholder="escribe help" enterkeyhint="send">
+              </form>
+            </div>
+            <div class="term__chips" id="termChips" aria-label="Comandos rápidos"></div>
+          </aside>
+        </div>
+
+        <div class="trail">
+          <h3 class="h-sub">Trayectoria</h3>
+          <ol class="timeline" id="timeline"></ol>
+          <div class="study">
+            <h4 class="study__title">Formación</h4>
+            <ul class="study__list" id="formacion"></ul>
+          </div>
+        </div>
+
+        <div class="sdd">
+          <div class="sdd__intro">
+            <h3 class="h-sub">Cómo trabajo</h3>
+            <p>Desarrollo guiado por especificaciones con OpenSpec. La especificación es la fuente de verdad: cada cambio se propone, se revisa y se verifica contra ella, lo implemente una persona o un agente de IA.</p>
+          </div>
+          <ol class="pipeline" id="pipeline"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOTOGRAFÍA ============ -->
+    <section class="zone zone--foto" id="foto" data-zone="foto" aria-labelledby="foto-title">
+      <div class="wrap">
+        <header class="zone__head zone__head--foto">
+          <h2 class="h-foto" id="foto-title">Fotografía</h2>
+          <p class="lead" id="fotoLead"></p>
+        </header>
+
+        <div class="filters" id="filters" role="toolbar" aria-label="Filtrar fotos por tipo de sesión"></div>
+        <div class="gallery" id="gallery"></div>
+
+        <div class="sessions">
+          <h3 class="h-sub h-sub--foto">Sesiones</h3>
+          <ul class="sessions__list" id="sessions"></ul>
+          <div class="sessions__foot">
+            <a class="btn btn--foto" href="#contacto" data-intent="foto">Pedir una sesión</a>
+            <p class="gear" id="fotoGear"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reticle" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+    </section>
+
+    <!-- ============ VÍDEO ============ -->
+    <section class="zone zone--video" id="video" data-zone="video" aria-labelledby="video-title">
+      <div class="wrap">
+        <header class="zone__head zone__head--video">
+          <h2 class="h-video" id="video-title">Vídeo</h2>
+          <p class="lead" id="videoLead"></p>
+        </header>
+
+        <div class="editor">
+          <div class="viewer">
+            <div class="viewer__stage" id="stage">
+              <div class="viewer__frame" id="viewerFrame">
+                <div class="viewer__media" id="viewerMedia"></div>
+              </div>
+              <div class="viewer__safe" aria-hidden="true"></div>
+              <div class="viewer__hud" aria-hidden="true">
+                <span id="hudFormat">16:9</span>
+                <span id="hudTc">00:00:00:00</span>
+              </div>
+            </div>
+            <div class="viewer__meta" aria-live="polite">
+              <div>
+                <p class="viewer__track" id="metaTrack"></p>
+                <h3 class="viewer__title" id="metaTitle"></h3>
+                <p class="viewer__text" id="metaText"></p>
+              </div>
+              <div class="viewer__actions" id="metaActions"></div>
+            </div>
+          </div>
+
+          <div class="transport">
+            <button type="button" class="transport__play" id="playBtn" aria-label="Reproducir">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="i-play"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="i-pause"><path d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z" fill="currentColor"/></svg>
+            </button>
+            <span class="transport__tc"><span id="tcNow">00:00:00:00</span> <span class="transport__total">/ <span id="tcTotal">00:02:00:00</span></span></span>
+            <span class="transport__hint">Arrastra el cabezal o pulsa un clip</span>
+          </div>
+
+          <div class="tl-scroll">
+            <div class="tl" id="tl" tabindex="0" role="slider" aria-label="Línea de tiempo" aria-valuemin="0" aria-valuemax="120" aria-valuenow="0" aria-valuetext="00:00:00:00">
+              <div class="tl__row tl__row--ruler">
+                <div class="tl__head"></div>
+                <div class="tl__lane tl__ruler" id="ruler"></div>
+              </div>
+              <div id="tracks"></div>
+              <div class="tl__row tl__row--audio">
+                <div class="tl__head"><b>A1</b><span>Música</span></div>
+                <div class="tl__lane"><div class="tl__audio" id="audioWave"></div></div>
+              </div>
+              <div class="tl__playhead" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="vservices" id="vservices"></ul>
+        <div class="vfoot">
+          <a class="btn btn--video" href="#contacto" data-intent="video">Contar tu proyecto de vídeo</a>
+          <p class="gear" id="videoGear"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="zone zone--contacto" id="contacto" data-zone="contacto" aria-labelledby="contacto-title">
+      <div class="wrap contact">
+        <h2 class="h-code contact__title" id="contacto-title">¿Hablamos?</h2>
+        <p class="lead contact__lead">Cuéntame qué tienes entre manos: una aplicación, una arquitectura, una boda, una sesión o un vídeo para tu marca.</p>
+
+        <div class="contact__panel">
+          <div class="intents" id="intents" role="radiogroup" aria-label="Qué necesitas"></div>
+          <div class="mail">
+            <p class="mail__label">Escríbeme a</p>
+            <p class="mail__addr"><span id="mailAddr" data-persona="email"></span></p>
+            <p class="mail__subject">Asunto: <span id="mailSubject"></span></p>
+            <div class="mail__actions">
+              <button type="button" class="btn" id="copyMail">Copiar dirección</button>
+              <a class="btn btn--ghost" id="openMail" href="#">Abrir el correo</a>
+            </div>
+          </div>
+          <ul class="social" id="social"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <p>© <span id="year">2026</span> <span data-persona="nombre">José Álvarez</span></p>
+      <p>Hecho a mano con HTML, CSS y JavaScript, sin frameworks.</p>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+    <div class="lightbox__media" id="lbMedia"></div>
+    <div class="lightbox__bar">
+      <p class="lightbox__cap"><span id="lbTitle"></span> <span id="lbExif" class="lightbox__exif"></span></p>
+      <div class="lightbox__nav">
+        <button type="button" id="lbPrev" aria-label="Foto anterior">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+        <button type="button" id="lbNext" aria-label="Foto siguiente">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+        <button type="button" id="lbClose" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
