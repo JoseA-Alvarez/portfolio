@@ -116,14 +116,15 @@ window.PORTFOLIO = {
   },
 
   foto: {
-    lead: "Bodas, premamá, bautizos, retrato y viajes. Trabajo con luz natural siempre que puedo y con flash cuando la escena lo pide.",
+    lead: "Bodas, premamá, bautizos, retrato, viajes y naturaleza. Trabajo con luz natural siempre que puedo y con flash cuando la escena lo pide.",
     equipo: "Canon EOS R6 Mark II y flash Godox AD200 Pro.",
     categorias: [
       { id: "bodas", nombre: "Bodas", texto: "De los preparativos a la fiesta, contado como un reportaje." },
       { id: "premama", nombre: "Premamá", texto: "Sesiones tranquilas, en exterior o en casa." },
       { id: "bautizos", nombre: "Bautizos", texto: "La ceremonia y la familia, sin interrumpir." },
       { id: "retrato", nombre: "Retrato y moda", texto: "Sesiones con modelos, books y retrato editorial." },
-      { id: "viajes", nombre: "Viajes", texto: "Paisaje, calle y gente de los sitios que visito." }
+      { id: "viajes", nombre: "Viajes", texto: "Paisaje, calle y gente de los sitios que visito." },
+      { id: "naturaleza", nombre: "Naturaleza", texto: "Fauna y paisaje, con paciencia y sin molestar." }
     ],
     /*
       Cada foto:
@@ -132,8 +133,10 @@ window.PORTFOLIO = {
         titulo: texto corto
         ratio:  proporción ancho/alto: "3/2", "2/3", "4/5", "1/1"...
         exif:   opcional, se muestra al pasar el ratón
+        enlace: opcional, enlace a la foto en 500px u otra web
     */
     fotos: [
+      { src: "assets/img/foto/naturaleza-alce.jpg", cat: "naturaleza", titulo: "Are u looking at me?", alt: "Un alce mira a cámara detrás de una valla de troncos en un bosque", ratio: "16/9", enlace: "https://500px.com/photo/9QXRKTQ4El6" },
       { src: "", cat: "bodas",    titulo: "Ceremonia",              ratio: "3/2", exif: "35 mm  f/2  1/320  ISO 200" },
       { src: "", cat: "premama",  titulo: "Atardecer en la playa",  ratio: "2/3", exif: "85 mm  f/1.8  1/500  ISO 100" },
       { src: "", cat: "retrato",  titulo: "Retrato de estudio",     ratio: "4/5", exif: "85 mm  f/5.6  1/200  ISO 100" },

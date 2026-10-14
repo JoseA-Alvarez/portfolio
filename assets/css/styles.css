@@ -445,6 +445,7 @@ html[data-zone="video"] .nav { --nav-fg: var(--white); --nav-bg: rgba(0, 0, 0, 0
 .ph--premama { background: linear-gradient(170deg, #F2DED8 0%, #D6A49C 55%, #9B6E6E 100%); }
 .ph--bautizos { background: linear-gradient(170deg, #F2F5F6 0%, #CFDDE6 50%, #94AEBE 100%); color: #31424D; }
 .ph--retrato { background: linear-gradient(160deg, #66717A 0%, #2E363D 60%, #14181B 100%); }
+.ph--naturaleza { background: linear-gradient(165deg, #B7C9A3 0%, #5E7F4F 55%, #2E4630 100%); }
 .ph--viajes { background: linear-gradient(165deg, #A6D3DA 0%, #4B9DB2 45%, #D9A86F 100%); }
 
 /* retícula de enfoque que sigue al ratón en la galería */
@@ -495,7 +496,8 @@ html[data-zone="video"] .nav { --nav-fg: var(--white); --nav-bg: rgba(0, 0, 0, 0
 .lightbox__bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; flex-wrap: wrap; }
 .lightbox__cap { font-family: var(--f-serif); font-style: italic; font-size: var(--step-1); }
 .lightbox__exif { font-family: var(--f-mono); font-style: normal; font-size: 0.74rem; color: #9AA4A9; margin-left: 10px; white-space: pre; }
-.lightbox__nav { display: flex; gap: 6px; }
+.lightbox__nav { display: flex; align-items: center; gap: 6px; }
+.lightbox__link { color: var(--white); font-size: var(--step--1); margin-right: 10px; text-underline-offset: 3px; }
 .lightbox__nav button { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid #2A3033; border-radius: 3px; background: none; cursor: pointer; }
 .lightbox__nav button:hover { border-color: var(--white); }
 .lightbox__nav svg { width: 18px; height: 18px; }

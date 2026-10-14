@@ -379,8 +379,9 @@
 
   $("#sessions").innerHTML = F.categorias.map((c) => `<li><h4>${esc(c.nombre)}</h4><p>${esc(c.texto)}</p></li>`).join("");
 
+  const BASE = document.body.dataset.page && document.body.dataset.page !== "todo" ? "../" : "";
   const media = (p, big) => p.src
-    ? `<img src="${esc(p.src)}" alt="${esc(p.alt || p.titulo)}" ${big ? "" : 'loading="lazy"'} decoding="async" style="--r:${esc(p.ratio || "3/2")}">`
+    ? `<img src="${esc(/^(https?:)?\/\//.test(p.src) ? p.src : BASE + p.src)}" alt="${esc(p.alt || p.titulo)}" ${big ? "" : 'loading="lazy"'} decoding="async" style="--r:${esc(p.ratio || "3/2")}">`
     : `<div class="ph ph--${esc(p.cat)}" role="img" aria-label="Espacio reservado para la foto: ${esc(p.titulo)}" style="--r:${esc(p.ratio || "3/2")};--rn:${ratioNum(p.ratio)}">
          <span class="ph__file">${esc(p.cat)}-${String(F.fotos.indexOf(p) + 1).padStart(2, "0")}.jpg</span>
          <span class="ph__word">${esc(catName[p.cat] || p.cat)}</span>
@@ -433,6 +434,8 @@
     lbMedia.innerHTML = media(p, true);
     $("#lbTitle").textContent = p.titulo;
     $("#lbExif").textContent = p.exif || "";
+    const lk = $("#lbLink");
+    if (lk) { lk.hidden = !p.enlace; if (p.enlace) { lk.href = p.enlace; lk.textContent = /500px/.test(p.enlace) ? "Ver en 500px" : "Ver original"; } }
   }
   function stepLb(d) {
     const v = visibleIdx();
